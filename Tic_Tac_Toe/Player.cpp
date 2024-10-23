@@ -1,4 +1,4 @@
-#include <Player.h>
+#include "Player.h"
 #include <iostream>
 
 #define Q matrix[0][0]
@@ -26,6 +26,22 @@ char Player::GetMark()
     return _mark;
 };
 
+void Player::SetMatrix(std::string matrix[3][3])
+{
+    for(int i=0; i < 3; i++)
+    {
+        for(int j=0; j < 3; j++)
+        {
+            _matrix[i][j] = matrix[i][j];
+        };
+    };
+};
+
+std::string (*Player::GetMatrix())[3]
+{
+    return _matrix;
+};
+
 void Player::ChangePlayer()
 {
     GetMark() == 'X' ? SetMark('O') : SetMark('X');
@@ -38,7 +54,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
     case 'Q':
             if(Q != "")
             {
-                std::cout << Q << std::endl;
+                //std::cout << Q << std::endl;
                 Q = GetMark();
                 SetMatrix(matrix);
             }
