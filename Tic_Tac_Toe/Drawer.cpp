@@ -1,12 +1,16 @@
 #include "Drawer.h"
 #include <iostream>
 
-Drawer::Drawer()
+/*
+    Implementation of the class drawer
+*/
+
+Drawer::Drawer() //Implementation of the base constructor
 {
 
 };
 
-void Drawer::DrawBoard()
+void Drawer::DrawBoard() //Drawing the empty board
 {
     std::cout << "" << std::endl;
     std::cout <<  "                                |   |                                  " << std::endl;
@@ -17,7 +21,7 @@ void Drawer::DrawBoard()
     std::cout << "" << std::endl;
 };
 
-void Drawer::DrawInstructions()
+void Drawer::DrawInstructions() //Writing in the terminal the instructions of the game
 {
     std::cout << "Bienvenido al TIC TAC TOE, a continuacion se mostraran las instrucciones." << std::endl;
     std::cout << "Para facilitar la jugabilidad cada una de las letras represanta un espacio en casilla " << std::endl;
@@ -31,13 +35,13 @@ void Drawer::DrawInstructions()
     std::cout << "Para colocar su marca en la casilla deseada, ingrese la letra correspondiente a dicha casilla" << std::endl;
 };
 
-void Drawer::UpdateBoard(char matrix[3][3])
+void Drawer::UpdateBoard(char matrix[3][3]) //Updating the board boxes whit new values
 {
     std::cout << "" << std::endl;
     std::cout << "                               " << matrix[0][0] << " | " << matrix[0][1] << " | " << matrix[0][2] << "                                 " << std::endl;
-    std::cout << "                               -----------                               " << std::endl;
+    std::cout << "                              -----------                                " << std::endl;
     std::cout << "                               " << matrix[1][0] << " | " << matrix[1][1] << " | " << matrix[1][2] << "                                 " << std::endl;
-    std::cout << "                               -----------                               " << std::endl;
+    std::cout << "                              -----------                                " << std::endl;
     std::cout << "                               " << matrix[2][0] << " | " << matrix[2][1] << " | " << matrix[2][2] << "                                 " << std::endl;
     std::cout << "" << std::endl;
 };
