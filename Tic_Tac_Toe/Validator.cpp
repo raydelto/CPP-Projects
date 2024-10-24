@@ -6,17 +6,17 @@ Validator::Validator()
     
 }
 
-void Validator::SetMark(std::string mark)
+void Validator::SetMark(char mark)
 {
     Validator::_mark = mark;
 };
 
-std::string Validator::GetMark()
+char Validator::GetMark()
 {
     return Validator::_mark;
 };
 
-void Validator::SetMatrix(std::string matrix[3][3])
+void Validator::SetMatrix(char matrix[3][3])
 {
     for(int i=0; i < 3; i++)
     {
@@ -27,12 +27,12 @@ void Validator::SetMatrix(std::string matrix[3][3])
     };
 };
 
-std::string (*Validator::GetMatrix())[3]
+char (*Validator::GetMatrix())[3]
 {
     return _matrix;
 };
 
-bool Validator::Validate(std::string matrix[3][3], std::string mark)
+bool Validator::Validate(char matrix[3][3], char mark)
 {
     for(int i=0; i < 3; i++)
     {
@@ -55,11 +55,11 @@ bool Validator::ValidateFirstDiagonal()
         {
             if(i == j)
             {
-                //std::cout <<_matrix[i][j] << std::endl;
-                _cnt = _matrix[i][j] == _mark ? _cnt++ : _cnt;  
+                _matrix[i][j] == _mark ? _cnt++ : _cnt;  
             }
         };
     };
+    //std::cout << "Conteo en validacion diagonal 1: " << _cnt << std::endl;
     return _cnt == 3;
 
 }
@@ -73,11 +73,11 @@ bool Validator::ValidateSecondDiagonal()
 		{
             if((i+j) == 2)
             {
-                std::cout <<_matrix[i][j] << std::endl;
-				_cnt = _matrix[i][j] == _mark ? _cnt++ : _cnt;
+				_matrix[i][j] == _mark ? _cnt++ : _cnt;
 			}
 		};
 	};
+    //std::cout << "Conteo en validacion diagonal 2: " << _cnt << std::endl;
 	return _cnt == 3;
 }
 
@@ -88,9 +88,9 @@ bool Validator::ValidateVertical()
     {
         for(int j = 0; j < 3; j++)
         {
-            _cnt = _matrix[j][i] == _mark ? _cnt++ : _cnt;  
+            _matrix[j][i] == _mark ? _cnt++ : _cnt;  
         };
-
+        //std::cout << "Conteo en validacion vertical: " << _cnt << std::endl;
         if(_cnt == 3){ return true; }else { continue; };
     };
     return false;
@@ -103,9 +103,9 @@ bool Validator::ValidateHorizontal()
     {
         for(int j = 0; j < 3; j++)
         {
-            _cnt = _matrix[i][j] == _mark ? _cnt++ : _cnt;  
+            _matrix[i][j] == _mark ? _cnt++ : _cnt;  
         };
-        
+        //std::cout << "Conteo en validacion horizontal: " << _cnt << std::endl;
         if(_cnt == 3){ return true; }else { continue; };
     };
     return false;

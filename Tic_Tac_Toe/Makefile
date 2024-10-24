@@ -1,8 +1,10 @@
 SRC = Validator.cpp\
-	  Player.cpp
+	  Player.cpp\
+	  Drawer.cpp
 
 OBJ = Validator.o\
-	  Player.o
+	  Player.o\
+	  Drawer.o
 
 all:
 	g++ -c ${SRC}

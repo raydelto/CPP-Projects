@@ -8,10 +8,14 @@ public:
     void ChangePlayer();
     char GetMark();
     void SetMark(char mark);
-    std::string (*GetMatrix())[3];
-    void SetMatrix(std::string matrix[3][3]);
-    void Play(std::string matrix[3][3], char mark, char position);
+    char (*GetMatrix())[3];
+    void SetMatrix(char matrix[3][3]);
+    void Play(char matrix[3][3], char mark, char position);
 private:
-    std::string _matrix[3][3];
+    char _matrix[3][3] = {
+        {'_','_','_'},
+        {'_','_','_'},
+        {'_','_','_'}
+    };;
     char _mark = 'X';
 };

@@ -26,7 +26,7 @@ char Player::GetMark()
     return _mark;
 };
 
-void Player::SetMatrix(std::string matrix[3][3])
+void Player::SetMatrix(char matrix[3][3])
 {
     for(int i=0; i < 3; i++)
     {
@@ -37,7 +37,7 @@ void Player::SetMatrix(std::string matrix[3][3])
     };
 };
 
-std::string (*Player::GetMatrix())[3]
+char (*Player::GetMatrix())[3]
 {
     return _matrix;
 };
@@ -45,14 +45,16 @@ std::string (*Player::GetMatrix())[3]
 void Player::ChangePlayer()
 {
     GetMark() == 'X' ? SetMark('O') : SetMark('X');
+
+    std::cout << "Es el turno del jugador " << GetMark() << std::endl;
 };
 
-void Player::Play(std::string matrix[3][3], char mark, char position)
+void Player::Play(char matrix[3][3], char mark, char position)
 {
     switch (position)
     {
     case 'Q':
-            if(Q != "")
+            if(Q == '_')
             {
                 //std::cout << Q << std::endl;
                 Q = GetMark();
@@ -64,7 +66,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
             };
         break;
     case 'W':
-            if(W != "")
+            if(W == '_')
             {
                 W = GetMark();
                 SetMatrix(matrix);
@@ -75,7 +77,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
             };
         break;
     case 'E':
-            if(E != "")
+            if(E == '_')
             {
                 E = GetMark();
                 SetMatrix(matrix);
@@ -86,7 +88,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
             };
         break;
     case 'R':
-            if(R != "")
+            if(R == '_')
             {
                 R = GetMark();
                 SetMatrix(matrix);
@@ -97,7 +99,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
             };
         break;
     case 'T':
-            if(T != "")
+            if(T == '_')
             {   
                 T = GetMark();
                 SetMatrix(matrix);
@@ -108,7 +110,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
             };
         break;
     case 'Y':
-            if(Y != "")
+            if(Y == '_')
             {
                 Y = GetMark();
                 SetMatrix(matrix);
@@ -119,7 +121,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
             };
         break;
     case 'U':
-            if(U != "")
+            if(U == '_')
             {
                 U = GetMark();
                 SetMatrix(matrix);
@@ -130,7 +132,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
             };
         break;
     case 'I':
-            if(I != "")
+            if(I == '_')
             {
                 I = GetMark();
                 SetMatrix(matrix);
@@ -141,7 +143,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
             };
         break;
     case 'O':
-            if(O != "")
+            if(O == '_')
             {
                 O = GetMark();
                 SetMatrix(matrix);
@@ -153,7 +155,7 @@ void Player::Play(std::string matrix[3][3], char mark, char position)
         break;
     
     default:
-            std::cout << "Ingrese una posición valida." << std::endl;
+            std::cout << "Ingrese una posicion valida." << std::endl;
         break;
     };
 };
