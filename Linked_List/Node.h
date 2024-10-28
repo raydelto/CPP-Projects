@@ -5,6 +5,7 @@ class Node
 {
 public:
     Node(std::string data);
+    ~Node();
     std::string GetData();
     void setData(std::string data);
     Node* GetNext();

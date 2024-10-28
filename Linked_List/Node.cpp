@@ -1,10 +1,16 @@
 #include <string>
+#include <iostream>
 #include "Node.h"
 
 Node::Node(std::string data)
 {
     Node::_data = data;
     Node::_next = nullptr;
+};
+
+Node::~Node()
+{
+    std::cout << "Borrando cancion." << std::endl;
 };
 
 std::string Node::GetData()
