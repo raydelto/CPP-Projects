@@ -67,7 +67,7 @@ bool List::Contains(std::string value)
     }
     else
     {
-        std::cout << "El valor " << n->Node::GetData() << " se encuentra en la lista." << std::endl;
+        std::cout << n->Node::GetData() << " se encuentra en la lista." << std::endl;
         return true;
     };
 
@@ -193,9 +193,6 @@ bool List::Remove(std::string value)
         prev = n;
         n = n->Node::GetNext();
     };
-
-    std::cout << prev->GetData() << std::endl;
-    std::cout << n->GetData() << std::endl;
 
     if(n == nullptr)
     {
