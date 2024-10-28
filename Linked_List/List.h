@@ -11,6 +11,7 @@ public:
     int Count();
     bool Edit(int position, std::string value);
     bool Remove(std::string value);
+    bool Destroy();
 private:
     Node* _head;
     Node* _tail;
