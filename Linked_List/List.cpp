@@ -213,11 +213,10 @@ bool List::Destroy()
         std::cout << "La lista esta vacia." << std::endl;
     };
 
-    Node *n = _head;
-
-    while(n != nullptr)
+    while(_head)
     {
+        Node *n = _head;
+        _head = n->GetNext();
         delete n;
-        n = n->Node::GetNext();
-    }
+    };
 };
