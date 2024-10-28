@@ -206,3 +206,18 @@ bool List::Remove(std::string value)
         return true;
     };
 };
+
+bool List::Destroy()
+{
+    if(_head == nullptr){
+        std::cout << "La lista esta vacia." << std::endl;
+    };
+
+    Node *n = _head;
+
+    while(n != nullptr)
+    {
+        delete n;
+        n = n->Node::GetNext();
+    }
+};
