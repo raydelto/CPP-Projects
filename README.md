@@ -13,11 +13,27 @@ como 3 en raya.
   The first of these projects consists of developing a program that allows 2 
 people to play the famous game Tic Tac Toe, also known as 3 in-line.
 
+Linked List: 
+  El proyecto consiste en implementar la estructura de datos lista enlazada 
+con las funcionalidades basicas de una lista como agregar elementos, modificar,
+visualizar, eliminar y otros extras, esta fue implementada con tematica de una
+lista de música.
+
+  The project consists of implementing the linked list data structure
+with the basic functionalities of a list such as adding elements, modifying,
+viewing, deleting and other extras, this was implemented with the theme of a
+music list.
+
 ## Authors
 
 Contributors names and contact info
 
 Tic Tac Toe:
+
+Roylin Rodriguez  
+[@Roylin]([https://twitter.com/dompizzie](http://www.linkedin.com/in/roylinrodriguez))
+
+Linked List:
 
 Roylin Rodriguez  
 [@Roylin]([https://twitter.com/dompizzie](http://www.linkedin.com/in/roylinrodriguez))
