@@ -2,70 +2,71 @@
 #include <iostream>
 
 
-List::List()
+List::List() //Base constructor
 {
-    List::_head = nullptr;
+    List::_head = nullptr; //Define the head of the list as 
 };
 
-void List::Add(Node* node)
+void List::Add(Node* node) //Method to add nodes to the list
 {
-    Node* n = node;
-
-    //std::cout << "Entrando al add" << std::endl;
-
-    //std::cout << n->GetData() << std::endl;
-
+    Node* n = node; //Create a auxiliar pointer to reference the node
+    //Evaluate if the head is different of nullptr
     if(_head != nullptr)
     {
-        Node* n = _head;
+        Node* n = _head; //Create a auxiliar pointer to reference the head of the list
+        //Evaluate if the next node is different of nullptr 
         while(n->Node::GetNext() != nullptr)
         {
-            n = n->Node::GetNext();
+            n = n->Node::GetNext(); //Assign to n the reference to next node
         }
-        n->SetNext(node);
+        n->SetNext(node); //Assign to the next pointer of the node the reference of node 
     }
     else
     {
-        //std::cout << "agregando al inicio" << std::endl;
-        _head = n;
-        _head->Node::SetNext(nullptr);
+        _head = n; //If the list is empty and assign the node to the head
+        _head->Node::SetNext(nullptr); //And define the next of the head as nullptr
     };
 };
 
-void List::Read()
+void List::Read() //Method to read the nodes in the list 
 {
+    //Evaluate if the list is empty
     if(_head == nullptr){
         std::cout << "La lista esta vacia." << std::endl;
     };
 
-    Node *n = _head;
+    Node *n = _head; //Create a auxiliar pointer to reference the head of the list
 
+    //While the n reference is different of nullptr repeat the loop
     while(n != nullptr)
     {
-        std::cout << n->Node::GetData() << std::endl;
-        n = n->Node::GetNext();
+        std::cout << n->Node::GetData() << std::endl; //Print the data of the node
+        n = n->Node::GetNext(); //Assign to the auxiliar the value of the next node
     }
 };
 
-bool List::Contains(std::string value)
+bool List::Contains(std::string value) //Method to identify is theres a especific node in the list
 {
+    //Evaluate if the list is empty
     if(_head == nullptr){
         std::cout << "La lista esta vacia." << std::endl;
     };
 
-    Node* n = _head;
+    Node* n = _head; //Create a auxiliar pointer to reference the head of the list
 
+    //While the n reference ant the value of the node is different of nullptr repeat the loop
     while(n != nullptr && n->Node::GetData() != value)
     {
-        n = n->Node::GetNext();
+        n = n->Node::GetNext(); //Assign to the auxiliar the value of the next node
     };
 
+    //If the value of n is nullptr it means it recorrio the whole list and didnt find the value
     if(n == nullptr)
     {
         std::cout << "El valor ingresado no se ha encontrado en la lista";
         return false;
     }
-    else
+    else //If it finds the value it'll print the value on the terminal
     {
         std::cout << n->Node::GetData() << " se encuentra en la lista." << std::endl;
         return true;
@@ -73,70 +74,68 @@ bool List::Contains(std::string value)
 
 };
 
-int List::Count()
+int List::Count() //Method to know how many nodes there in the list
 {
-    Node *n = _head;
-    int cnt = 0;
+    Node *n = _head; //Create a auxiliar pointer to reference the head of the list
+
+    int cnt = 0; //Create a counter variable to store the quantity of elements in the list
+
+    //While the n reference is different of nullptr repeat the loop
     while(n != nullptr)
     {
-        n = n->GetNext();
-        cnt++;
+        n = n->GetNext(); //Assign to the auxiliar the value of the next node
+        cnt++; //Increase in 1 the value of cnt
     };
-    return cnt++;
+    return cnt++; //Return the value of cnt
 };
 
-bool List::Edit(int position, std::string value)
+bool List::Edit(int position, std::string value) //Method to Move a node from its original position
 {
+    //Evaluate if the list is empty
     if(_head == nullptr){
         std::cout << "La lista esta vacia." << std::endl;
         return false;
     };
 
-    List::Contains(value);
+    List::Contains(value); //Check out if the element to be edited is in the list
 
-    Node* prev = nullptr;
-    Node* n = _head;
-    Node* aux = _head;
-    int cnt = 0;
+    Node* prev = nullptr; //Define a variable to store the previous value of the node to be moved
+    Node* n = _head; //Create a auxiliar pointer to reference the head of the list
+    Node* aux = _head; //Create another auxiliar variable to store the reference of the element to be replaced
+    int cnt = 0; //Create a counter variable to store the quantity of steps from the begining to the element to be moved 
 
+    //Find the element to be replaced
     for(int i = 0; i < position; i++)
     {
         aux = aux->GetNext();
     }
 
+    //While the n reference ant the value of the node is different of nullptr repeat the loop
     while(n != nullptr && n->Node::GetData() != value)
     {
-        prev = n;
-        n = n->GetNext();
-        cnt++;
+        prev = n; //Store the reference to the node that is behind the node to be moved
+        n = n->GetNext(); //Get the node to be moved
+        cnt++; //Get the quantity of steps from the begining to the element to be moved
     };
 
-/*
-        std::cout << "modificar " << aux->GetData() << std::endl;
-        std::cout << "" << std::endl;
-        std::cout << "mover " << n->GetData() << std::endl;
-        std::cout << "" << std::endl;
-        std::cout << "Prev " << prev->GetData() << std::endl;
-        std::cout << "" << std::endl;
-        std::cout << "Count " << cnt << std::endl;
-*/
-
+    //Evaluate if the user is trying to move a element to his current position
     if(n == aux)
     {
         std::cout << "Ha intentado modificar un elemento en su misma posicion" << std::endl;
         return false;
     };
 
-    //Mover cabecera de la lista
+    //If the element to be moved is the header of the list
     if(n == _head)
     {
-        aux->setData(n->GetData());
-        _head = n->GetNext();
-        std::cout << "El elemento se ha modificado con exito." << std::endl;
+        aux->setData(n->GetData()); //Set the data of the element to be replaced as the data of the element to be moved
+        _head = n->GetNext(); //Define the element that is next of the head as the head
+        std::cout << "El elemento se ha modificado con exito." << std::endl; 
         return true;
     };
 
-
+    /*This part of the code is supposed to be refactorized in the future*/
+    //Evalue if the element to be moved is forward the element to be replaced 
     if(cnt > position)
     {
         if(n->GetNext() != nullptr)

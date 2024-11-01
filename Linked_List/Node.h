@@ -1,16 +1,20 @@
 #pragma once
 #include <string>
 
+/*
+    Classs to create nodes of the linked list
+*/
+
 class Node
 {
 public:
-    Node(std::string data);
-    ~Node();
-    std::string GetData();
-    void setData(std::string data);
-    Node* GetNext();
-    void SetNext(Node* next);
-    Node* _next;
+    Node(std::string data); //Base constructor of the class
+    ~Node(); //Destructor method of the class
+    std::string GetData(); //Getter for the _data property
+    void setData(std::string data); //Setter for the _data property
+    Node* GetNext(); //Getter for the _next property 
+    void SetNext(Node* next); //Setter for the _next property
+    Node* _next; // Pointer to the nex node
 private:
-    std::string _data;
+    std::string _data; //Proterty that store the data of the node
 };
