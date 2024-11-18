@@ -24,6 +24,13 @@ with the basic functionalities of a list such as adding elements, modifying,
 viewing, deleting and other extras, this was implemented with the theme of a
 music list.
 
+Graphic_Star:
+  Esta tarea consiste en modificar la plantilla provista para generar una estrella
+utilizando dos triangulos con OpenGL y cambiar el fondo a color morado.
+
+  Esta tarea consiste en modificar la plantilla provista para generar una estrella
+utilizando dos triangulos con OpenGL y cambiar el fondo a color morado.
+
 ## Authors
 
 Contributors names and contact info
