@@ -114,6 +114,10 @@ bool init()
         -0.25f, 0.25f, 0.0f, 0.0f, 1.0f, 0.0f,  // top left
         0.25f, 0.25f, 0.0f, 0.0f, 0.0f, 1.0f,   // top right
         0.0f, -0.45f, 0.0f, 0.0f, 0.0f, 0.0f,   // bottom
+        //Just add the vertices of the Second triangle
+        -0.25f, -0.25f, 0.0f, 0.0f, 1.0f, 0.0f, //bottom left
+        0.0f, 0.45f, 0.0f, 0.0f, 0.0f, 0.0f,    //top
+        0.25f, -0.25f, 0.0f, 0.0f, 1.0f         //bottom rigth
     };
 
 
@@ -126,7 +130,6 @@ bool init()
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void *)0);
     glEnableVertexAttribArray(0);
-
     glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void *)(3 * sizeof(GLfloat)));
     glEnableVertexAttribArray(1);
 
@@ -149,13 +152,15 @@ void render()
 
         // render
         // ------
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+        //Turn the background color violet
+        glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         // draw our first triangle
         glUseProgram(shaderProgram);
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
+        //Change the number of vertices to draw
+        glDrawArrays(GL_TRIANGLES, 0, 6);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
