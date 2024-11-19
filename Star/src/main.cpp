@@ -22,6 +22,7 @@ const char *vertexShaderSource = "#version 330 core\n"
                                  "void main()\n"
                                  "{\n"
                                  "   gl_Position = vec4(aPos, 1.0);\n"
+                                 "   gl_PointSize = 10.0; // Set the point size in pixels\n"
                                  "   vertexColor = aColor;\n"
                                  "}\0";
 const char *fragmentShaderSource = "#version 330 core\n"
@@ -29,7 +30,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
                                    "out vec4 FragColor;\n"
                                    "void main()\n"
                                    "{\n"
-                                   "   FragColor = vec4(1.0, 1.0, 0.0 ,1.0);\n"
+                                   "   FragColor = vec4(1.0,0.0,0.0, 1.0);\n"
                                    "}\n\0";
 
 bool init()
@@ -143,6 +144,8 @@ bool init()
 
 void render()
 {
+    
+
     while (!glfwWindowShouldClose(window))
     {
         showFPS(window);
@@ -153,14 +156,15 @@ void render()
         // render
         // ------
         //Turn the background color violet
-        glClearColor(1.0f, 0.0f, 1.0f, 1.0f);
+        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         // draw our first triangle
         glUseProgram(shaderProgram);
+        glEnable(GL_PROGRAM_POINT_SIZE);
         glBindVertexArray(VAO);
         //Change the number of vertices to draw
-        glDrawArrays(GL_TRIANGLES, 0, 6);
+        glDrawArrays(GL_POINTS, 0, 6);
 
         glfwSwapBuffers(window);
         glfwPollEvents();

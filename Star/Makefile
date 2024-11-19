@@ -18,3 +18,5 @@ FLAGS=-std=c++17
 all:
 	g++ -c $(SRC) $(INCLUDES) $(WARNINGS) $(FLAGS)
 	g++ $(OBJ) $(LIBS) $(INCLUDES) -o main.exe $(WARNINGS) $(FLAGS)
+clean:
+	rm *.o
